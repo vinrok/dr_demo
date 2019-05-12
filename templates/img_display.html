@@ -1,0 +1,74 @@
+<html>
+<head>
+
+</head>
+
+<body>
+
+
+
+
+
+
+<script>
+/*
+function showImg(){
+	preview = document.getElementById('imgShow');
+	var file    = document.querySelector('input[type=file]').files[0];
+	var reader  = new FileReader();
+
+	reader.onload = function () {
+		url = reader.result;
+		preview.src = url;
+		console.log(url);
+	}
+
+	if (file) {
+		reader.readAsDataURL(file);
+		console.log(reader);
+	} else {
+		preview.src = "";
+	}
+}
+*/
+
+
+/*
+if (window.File && window.FileReader && window.FileList && window.Blob) {
+document.getElementById('imgInp').addEventListener('change', handleFileSelect, false);
+}
+
+function handleFileSelect(evt) {
+var f = evt.target.files[0]; // FileList object
+var reader = new FileReader();
+
+// Closure to capture the file information.
+reader.onload = (function(theFile) {
+return function(e) {
+var binaryData = e.target.result;
+
+console.log(binaryData);
+//Converting Binary Data to base 64
+//var base64String = window.btoa(binaryData);
+
+var data ={
+'base64String' :binaryData
+}
+
+// $('btnClick').click(function(data){
+// requestData(data);
+// })
+
+
+//showing file converted to base64
+//console.log(base64String);
+};
+})(f);
+
+// Read in the image file as a data URL.
+reader.readAsDataURL(f);
+}
+*/
+</script>
+</body>
+</html>

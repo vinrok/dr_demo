@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Dr UI</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 
 <body>
 
 <form>
 	<input type="file"  id="files" />
-	<button id="btn" onclick="showImg()">click</button>
+	<button id="btn">click</button>
 </form>
 
 <div>
@@ -15,8 +23,9 @@
 </div>
 
 <script>
+
 if (window.File && window.FileReader && window.FileList && window.Blob) {
-  document.getElementById('files').addEventListener('click', handleFileSelect, false);
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
 } else {
   alert('The File APIs are not fully supported in this browser.');
 }
@@ -33,11 +42,9 @@ function handleFileSelect(evt) {
 	  console.log(binaryData);
       
 	  //Converting Binary Data to base 64
-      //var base64String = window.btoa(binaryData);
+      //var base64String = window.btoa(binaryData);	  
 	  
-	  showImg(binaryData);
-	  
-      //showing file converted to base64
+    //showing file converted to base64
       //console.log(base64String);      
     };
   })(f);
@@ -45,6 +52,7 @@ function handleFileSelect(evt) {
   // Read in the image file as a data URL.
   reader.readAsDataURL(f);
 }
+
 function showImg(input){
 	$('#imgShow').attr('src', input);
 }

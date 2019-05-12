@@ -5,8 +5,8 @@ Created on Wed May  8 11:06:39 2019
 @author: VC5052254
 """
 
-from flask import Flask, render_template, request,jsonify
-import base64
+from flask import Flask, render_template, request, jsonify
+#import base64
 #import cv2
 #import numpy as np
 #import io
@@ -18,8 +18,8 @@ app = Flask(__name__)
 @app.route('/show', methods=['POST'])
 def show():
     data = request.json     
-    jpg_img = data['base64String']
-    #print(jpg_img)
+    jpg_img = data['imgString']
+    print(jpg_img)
     
     #b64_histogram = "data:image/png;base64," + jpg_img
     #cv2.imwrite('',b64_histogram)
@@ -70,7 +70,7 @@ def base64imgfile_to_array(b64enc_filestring, params={}):
  '''
     
 if __name__ == '__main__':
-    chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+    chrome_path = 'C:/Program Files (x86)/BraveSoftware/Brave-Browser/Application/brave.exe %s'
     webbrowser.get(chrome_path).open('file://' + os.path.realpath('templates/drui.html'))
 
     #url = os.getcwd() +'\\templates\\drui.html'
