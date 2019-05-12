@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Dr UI</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap-filestyle.min.js"></script>
+
+<style>
+.fix{
+	align: center;
+}
+
+#load {
+	position: relative;
+	top: -1;
+	z-index: -1;
+}
+
+#load2 {
+	position: relative;
+	top: -1;
+	z-index: -1;	
+}
+
+#gray_img {
+	position: absolute;
+	display: none;
+	z-index: 999;
+	top: 0;
+.}
+
+#hist_img {
+	position: absolute;
+	display: none;
+	z-index: 999;
+	top: 0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-light bg-primary">
+	<img src="../images/atos-syntel.png" class="img-thumbnail" width="100px">
+</nav>
+
+<br />
+<br />
+
+<div class="row justify-content-center">
+	<div class="col-md-8 offset-md-4">
+		<form class="form-inline" enctype="multipart/form-data">
+			<div class="form-group">
+				<input type="file" class="form-control-file" name="files" id="imgInp" placeholder="" aria-describedby="fileHelpId">
+				<span>&nbsp;&nbsp;</span>
+				<button class="btn btn-outline-success mr-2 mr-md-3" onclick="showImg()" id="btnClick" name="execute">Execute</button>
+			</div>
+		</form>
+	</div>	
+</div>
+
+
+<!-- 
+<div class="form-group">
+    <input type="file" name="img[]" class="file">
+    <div class="input-group col-xs-12">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+      <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+      <span class="input-group-btn">
+        <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+      </span>
+    </div>
+  </div>
+-->
+
+<br />
+<br />
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 offset-md-1">
+			<img id="imgShow" src="#" alt="" class="img-thumbnail" />
+		</div>
+		
+		<div class="col-md-3 offset-md-1">
+			<img src="../images/loading.gif" id="load" class="img-thumbnail" />
+			<img src="../images/gray_img.png" id="gray_img" alt="gray image" class="img-thumbnail" />
+		</div>
+		
+		<div class="col-md-3 offset-md-1">
+		    <img src="../images/loading.gif" id="load2" class="img-thumbnail" />
+			<img src="../images/histogram.png" id="hist_img" alt="histogram image" class="img-thumbnail" />
+		</div>
+	</div>
+</div>
+
+<br />
+<br />
+
+<script>
+	
+	$(document).ready(function () {
+		$("#gray_img").hide();
+		$("#hist_img").hide();
+		$("#imgShow").hide();
+		
+		
+		$("#load").hide();
+		$("#load2").hide();
+		
+		$('#imgInp').filestyle({
+			buttonText: 'Select File',
+			buttonName: 'btn btn-secondary',
+			iconName: 'glyphicon glyphicon-search'
+		});		
+
+		//$("#imgInp").change(function () {
+			//readURL(this);			
+			//$('#imgShow').show();
+			//showImg();
+		//}); 
+		
+		//console.log(readURL);
+		
+		
+		//$('#gray_img').delay(5500).fadeIn(300);
+		
+		//$('#load2').fadeOut(7000)
+		//$('#hist_img').delay(6500).fadeIn(200);
+		
+		
+		
+		
+		
+		//$('#load2').hide();
+		
+		//$('#gray_img').show();
+		
+		
+		
+		
+	});
+/*
+if (window.File && window.FileReader && window.FileList && window.Blob) {
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+}
+
+function handleFileSelect(evt) {
+  var f = evt.target.files[0]; // FileList object
+  var reader = new FileReader();
+  
+// Closure to capture the file information.
+  reader.onload = (function(theFile) {
+    return function(e) {
+      var binaryData = e.target.result;
+	  
+      //Converting Binary Data to base 64
+      //var base64String = window.btoa(binaryData);
+	  
+	  var data ={
+	  'base64String' :binaryData 
+	  }
+	  
+	  requestData(data)
+	  
+      //showing file converted to base64
+      //console.log(base64String);      
+    };
+  })(f);
+  
+  // Read in the image file as a data URL.
+  reader.readAsDataURL(f);
+}
+*/
+/*
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+			
+			
+            reader.onload = function (e) {			
+				$('#imgShow').attr('src', e.target.result);
+                //var binaryData = e.target.result;				
+				console.log(e.target.result);				
+            }			
+			console.log(reader.result);
+
+            reader.readAsDataURL(input.files[0]);			
+        }
+}
+*/
+function showImg(){
+	preview = document.getElementById('imgShow');
+	var file    = document.querySelector('input[type=file]').files[0];
+	var reader  = new FileReader();
+
+	reader.onload = function () {
+		url = reader.result;
+		preview.src = url;
+		console.log(url);
+	}
+
+	if (file) {
+		reader.readAsDataURL(file);
+		console.log(reader);
+	} else {
+		//preview.src = "";
+	}
+}
+
+/*
+function requestData(data){
+		   var settings = {
+					   "async": true,
+					   "crossDomain": true,
+					   "url": 'http://127.0.0.1:5000/show',
+					   "method": "POST",
+					   "headers": {
+							  "content-type": "application/json",
+							  "cache-control": "no-cache"
+					   },
+					   	"data": JSON.stringify(data, null, '\t')
+					 }
+		   
+					 $.ajax(settings)
+					 .done(function(response) {
+						console.log(response);
+							  imgSrc = response['imgSrc'];
+							  console.log(imgSrc);
+							  alert("Image Fetched");
+								$('#imgShow')
+									.attr('src', "" + imgSrc + "")         // ADD IMAGE PROPERTIES.
+																			// APPEND TO DIV
+							  
+							})
+}    
+*/
+</script>
+
+
+<!-- scripts -->
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+</body>
+</html>
